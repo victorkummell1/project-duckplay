@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Duck Play
 
-## Getting Started
+![GitHub repo size](https://img.shields.io/github/repo-size/victorkummell1/project-duckplay?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/victorkummell1/project-duckplay?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/victorkummell1/project-duckplay?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/victorkummell1/project-duckplay?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/victorkummell1/project-duckplay?style=for-the-badge)
 
-First, run the development server:
+<img src="README.png" alt="Exemplo imagem">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+
+### Ajustes e melhorias
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+
+- [ ] Tradução
+- [ ] Adicionar Jogos
+- [ ] Player de Video
+- [ ] Download de Jogos
+
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+* Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
+* Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
+* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+
+## 🚀 Instalando Duck Play
+
+Para instalar o Duck Play, siga estas etapas:
+
+Linux e macOS:
+```
+<comando_de_instalação>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Windows:
+```
+<comando_de_instalação>
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ☕ Usando Duck Play
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Para usar Duck Play, siga estas etapas:
 
-## Learn More
+```
+<exemplo_de_uso>
+```
 
-To learn more about Next.js, take a look at the following resources:
+Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Colaboradores
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-## Deploy on Vercel
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/125506693?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <sub>
+          <b>Victor Kummel</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
