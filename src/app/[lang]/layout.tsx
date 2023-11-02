@@ -28,7 +28,7 @@ type Props = {
 export default function RootLayout({ params, children }: Props) {
   return (
     <html lang={params.lang}>
-      <body className={inter.className}>
+      <body className={(inter.className, "bg-dark-10")}>
         <Header lang={params.lang} />
         {children}
       </body>

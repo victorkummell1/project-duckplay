@@ -35,6 +35,9 @@ module.exports = {
         'support-04': '#F03D3D', // Error
         'support-05': '#E0E0E0', // Information
       },
+       backgroundImage: {
+        'assasins-creed': "url('/Assassins-Creed-Mirage-Review.png')",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
