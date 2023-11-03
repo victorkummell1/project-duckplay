@@ -34,9 +34,11 @@ module.exports = {
         'support-03': '#FFCE52', // Warning
         'support-04': '#F03D3D', // Error
         'support-05': '#E0E0E0', // Information
+        'green-light': '#6CB800' // green system
       },
        backgroundImage: {
         'assasins-creed': "url('/Assassins-Creed-Mirage-Review.png')",
+        'assasins-creed-mirage': "url('/Assassins_Creed_Mirage_header 3.png')",
       },
       keyframes: {
         "accordion-down": {
@@ -55,4 +57,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  tailwindConfig: './styles/tailwind.config.js',
 }

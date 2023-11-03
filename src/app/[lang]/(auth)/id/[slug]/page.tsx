@@ -123,7 +123,7 @@ export default function Profile() {
                 />
                 <div className="w-full flex flex-col items-start justify-center gap-8">
                   <span className="font-light text-2xl">
-                    Assassins Creed Valhalla
+                    Assassin&#39;s Creed Valhalla
                   </span>
                   <div className="flex flex-col gap-3">
                     <span className="font-light">Progresso de Conquista</span>
