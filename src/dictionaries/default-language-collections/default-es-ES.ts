@@ -13,5 +13,16 @@ export const esES = {
     "support": "Apoyo",
     "session": "inicia sesión",
     "language": "idioma",
-  }
+  },
+  shop: {
+  },
+  community: {
+  },
+  about: {
+  },
+  support: {
+  },
+  footer: {
+    "copyright": "Todos los derechos reservados"
+  },
 }

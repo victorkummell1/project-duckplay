@@ -13,5 +13,16 @@ export const ptBR = {
     "support": "Suporte",
     "session": "iniciar sessão",
     "language": "idioma",
-  }
+  },
+  shop: {
+  },
+  community: {
+  },
+  about: {
+  },
+  support: {
+  },
+  footer: {
+    "copyright": "Todos os direitos reservados"
+  },
 }

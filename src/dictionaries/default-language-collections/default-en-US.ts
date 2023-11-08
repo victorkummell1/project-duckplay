@@ -13,5 +13,16 @@ export const enUS = {
     "support": "Support",
     "session": "sign in",
     "language": "language",
-  }
+  },
+  shop: {
+  },
+  community: {
+  },
+  about: {
+  },
+  support: {
+  },
+  footer: {
+    "copyright": "All Rights Reserved"
+  },
 }

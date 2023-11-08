@@ -14,7 +14,7 @@ import {
 export default function GamePage() {
   return (
     <main className="bg-assasins-creed-mirage bg-no-repeat bg-contain bg-top text-white">
-      <div className="w-full bg-gradient-to-t from-25% from-dark-10 flex flex-col gap-6 items-center justify-start py-24 gap-12">
+      <div className="w-full bg-gradient-to-t from-25% from-dark-10 flex flex-col items-center justify-start py-24 gap-12">
         <section className="w-full max-w-6xl flex flex-col items-start justify-center gap-4">
           <div className="flex gap-3 items-center text-dark-30">
             <span>Todos os Jogos</span>
