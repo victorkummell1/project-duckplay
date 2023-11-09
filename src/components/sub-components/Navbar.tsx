@@ -37,7 +37,7 @@ export default function Navbar({ lang }: Props) {
   return (
     <div className="z-10 max-w-9xl w-full items-center justify-between text-sm flex">
       <section className="flex items-center space-x-12">
-        <Link href={'/'} className="text-lg font-bold text-white">
+        <Link href={'../../'} className="text-lg font-bold text-white">
           Duck Play
         </Link>
         <ul className="hidden lg:flex items-center gap-4">

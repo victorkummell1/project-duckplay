@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+import { signIn } from 'next-auth/react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -14,17 +15,25 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
-  email: z.string().min(8, {
-    message: 'Email não pode ser vazio.',
-  }),
-  password: z.string().min(8, {
-    message: 'Sua senha não pode ser vazia.',
+  email: z
+    .string()
+    .min(1, {
+      message: 'Email necessário.',
+    })
+    .email({
+      message: 'Email inválido.',
+    }),
+  password: z.string().min(1, {
+    message: 'Senha necessária.',
   }),
 })
 
 export function LoginForm() {
+  const router = useRouter()
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,10 +44,18 @@ export function LoginForm() {
   })
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const signInData = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    })
+
+    if (signInData?.error) {
+      console.error(signInData.error)
+    } else {
+      router.push('/id/1234')
+    }
   }
 
   return (

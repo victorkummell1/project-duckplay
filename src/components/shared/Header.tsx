@@ -1,7 +1,7 @@
-import { Locale } from "@/config/i18n.config";
-import Navbar from "../sub-components/Navbar";
+import { Locale } from '@/config/i18n.config'
+import Navbar from '../sub-components/Navbar'
 
-type Props = { lang: Locale };
+type Props = { lang: Locale }
 
 export default function Header({ lang }: Props) {
   return (
@@ -10,5 +10,5 @@ export default function Header({ lang }: Props) {
         <Navbar lang={lang} />
       </header>
     </>
-  );
+  )
 }

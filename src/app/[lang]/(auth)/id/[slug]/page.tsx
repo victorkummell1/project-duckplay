@@ -1,16 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import Image from "next/image";
-import { GiBrazilFlag } from "react-icons/gi";
-import { GoGear } from "react-icons/go";
+import { Button } from '@/components/ui/button'
+import { Progress } from '@/components/ui/progress'
+import Image from 'next/image'
+import { GiBrazilFlag } from 'react-icons/gi'
+import { GoGear } from 'react-icons/go'
 import {
   PiGameController,
   PiMedalMilitary,
   PiPerson,
   PiRocket,
-} from "react-icons/pi";
+} from 'react-icons/pi'
 
-export default function Profile() {
+import { authOptions } from '@/lib/auth'
+import { getServerSession } from 'next-auth'
+
+export default async function Profile() {
+  const session = await getServerSession(authOptions)
+
   return (
     <main className="bg-assasins-creed bg-fixed bg-no-repeat bg-cover h-[1000px] text-white">
       <div className="w-full bg-black/20 backdrop-blur-sm flex h-[1000px] flex-col items-center justify-center">
@@ -19,14 +24,16 @@ export default function Profile() {
             <div className="w-full max-h-60 flex gap-14">
               <div className="flex gap-10">
                 <Image
-                  src={"/Null_Image.png"}
+                  src={'/Null_Image.png'}
                   width={240}
                   height={240}
                   alt="Image de Perfil"
                   className="rounded-lg"
                 />
                 <div className="flex flex-col gap-3">
-                  <h1 className="font-light text-5xl">Victor Kummel</h1>
+                  <h1 className="font-light text-5xl">
+                    {session?.user.username}
+                  </h1>
                   <div className="flex gap-3 items-center">
                     <span className="font-light text-base">
                       Imbituba, Brasil
@@ -84,7 +91,7 @@ export default function Profile() {
             <section className="flex flex-col items-start justify-between w-full gap-10">
               <div className="w-full flex items-center gap-8">
                 <Image
-                  src={"/GhostWire-Tokyo 2.png"}
+                  src={'/GhostWire-Tokyo 2.png'}
                   width={280}
                   height={150}
                   alt="GhostWire-Tokyo 2"
@@ -102,8 +109,9 @@ export default function Profile() {
                 </div>
                 <div className="flex flex-col items-end justify-center gap-8">
                   <Button
-                    variant={"default"}
-                    className="py-3 px-10 bg-brand-color uppercase hover:bg-brand-color-darkness">
+                    variant={'default'}
+                    className="py-3 px-10 bg-brand-color uppercase hover:bg-brand-color-darkness"
+                  >
                     Jogar Agora
                   </Button>
                   <div className="flex flex-col items-end justify-center">
@@ -116,7 +124,7 @@ export default function Profile() {
               </div>
               <div className="w-full flex items-center gap-8">
                 <Image
-                  src={"/assassins-creed-valhalla 2.png"}
+                  src={'/assassins-creed-valhalla 2.png'}
                   width={280}
                   height={150}
                   alt="Assassin's Creed Valhalla"
@@ -136,8 +144,9 @@ export default function Profile() {
                 </div>
                 <div className="flex flex-col items-end justify-center gap-8">
                   <Button
-                    variant={"default"}
-                    className="py-3 px-10 bg-brand-color uppercase hover:bg-brand-color-darkness">
+                    variant={'default'}
+                    className="py-3 px-10 bg-brand-color uppercase hover:bg-brand-color-darkness"
+                  >
                     Jogar Agora
                   </Button>
                   <div className="flex flex-col items-end justify-center">
@@ -153,5 +162,5 @@ export default function Profile() {
         </div>
       </div>
     </main>
-  );
+  )
 }
