@@ -43,7 +43,7 @@ const formSchema = z
       .max(16, {
         message: 'Sua senha precisa ter menos de 16 caracteres.',
       }),
-    confirmPassword: z.string().min(1, 'Necessário confirmar senha.'),
+    confirmPassword: z.string().min(1, 'Confirmação de senha necessária.'),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ['confirmPassword'],

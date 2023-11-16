@@ -54,7 +54,7 @@ export function LoginForm() {
     if (signInData?.error) {
       console.error(signInData.error)
     } else {
-      router.push('/id/1234')
+      router.push('/store')
     }
   }
 

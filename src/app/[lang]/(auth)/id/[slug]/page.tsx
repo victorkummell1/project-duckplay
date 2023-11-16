@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import Image from 'next/image'
-import { GiBrazilFlag } from 'react-icons/gi'
 import { GoGear } from 'react-icons/go'
 import {
   PiGameController,
@@ -12,9 +11,21 @@ import {
 
 import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
+import { db } from '@/lib/db'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
-export default async function Profile() {
+export default async function Profile({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const session = await getServerSession(authOptions)
+  const isOwnerAccount = session?.user.slug === params.slug
+  const user = await db.user.findUnique({
+    where: {
+      slug: params.slug,
+    },
+  })
 
   return (
     <main className="bg-assasins-creed bg-fixed bg-no-repeat bg-cover h-[1000px] text-white">
@@ -24,23 +35,24 @@ export default async function Profile() {
             <div className="w-full max-h-60 flex gap-14">
               <div className="flex gap-10">
                 <Image
-                  src={'/Null_Image.png'}
+                  src={user?.image || 'https://i.imgur.com/QpILXvO.png'}
                   width={240}
                   height={240}
                   alt="Image de Perfil"
                   className="rounded-lg"
                 />
                 <div className="flex flex-col gap-3">
-                  <h1 className="font-light text-5xl">
-                    {session?.user.username}
-                  </h1>
+                  <h1 className="font-light text-5xl">{user?.nickname}</h1>
                   <div className="flex gap-3 items-center">
                     <span className="font-light text-base">
-                      Imbituba, Brasil
+                      {user?.city} - {user?.states}, {user?.country}
                     </span>
-                    <GiBrazilFlag className="text-green-500 w-6 h-6" />
+                    {/* <GiBrazilFlag className="text-green-500 w-6 h-6" /> */}
                   </div>
-                  <div className="flex mt-14">
+                  <ScrollArea className="flex font-light text-base text-dark-30 items-center w-[540px] h-[80px]">
+                    {user?.description}
+                  </ScrollArea>
+                  <div className="flex mt-6">
                     <ul className="flex items-center list-none gap-14">
                       <li className="flex flex-col items-start justify-center">
                         <span className="font-light uppercase">Conquistas</span>
@@ -77,9 +89,11 @@ export default async function Profile() {
                 </div>
               </div>
             </div>
-            <Button className="bg-dark-20 w-12 h-12 p-2">
-              <GoGear className="w-full h-full text-white" />
-            </Button>
+            {isOwnerAccount && (
+              <Button className="bg-dark-20 w-12 h-12 p-2">
+                <GoGear className="w-full h-full text-white" />
+              </Button>
+            )}
           </section>
           <section className="flex flex-col w-full gap-12">
             <div className="w-full flex items-center justify-between">

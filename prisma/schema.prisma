@@ -11,10 +11,179 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  email       String    @unique
-  username    String    @unique
-  password    String
-  createdAt   DateTime  @default(now())
-  updateAt    DateTime  @updatedAt
+  id Int @id @default(autoincrement())
+
+  username String
+  nickname String
+  slug     String @unique
+
+  email    String @unique
+  password String
+
+  description String?
+
+  image String
+
+  city    String?
+  states  String?
+  country String?
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+
+  rating Float? @default(5)
+
+  name String @unique
+  slug String @unique
+
+  description     String?
+  planDescription String?
+
+  about String?
+
+  windows Boolean  @default(true)
+  linux   Boolean
+  macOs   Boolean?
+
+  singleplayer Boolean? @default(true)
+  multiplayer  Boolean?
+  achievements Boolean?
+  gamepad      Boolean?
+
+  recommended Boolean? @default(false)
+
+  discount Int?
+  price    Float?
+
+  published Boolean @default(true)
+
+  createdAt DateTime @default(now())
+
+  Image Image[]
+  Video Video[]
+
+  developer_id   Int
+  distributor_id Int
+  genre_id       Int
+
+  developers   Developer    @relation(fields: [developer_id], references: [id])
+  distributors Distributor  @relation(fields: [distributor_id], references: [id])
+  genres       Genre        @relation(fields: [genre_id], references: [id])
+  ImageLogo    ImageLogo[]
+  ImageAbout   ImageAbout[]
+
+  @@map("products")
+}
+
+model Genre {
+  id Int @id @default(autoincrement())
+
+  name    String    @unique
+  Product Product[]
+
+  @@map("genres")
+}
+
+model ImageLogo {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  url  String @unique
+  alt  String
+
+  product_slug String
+  products     Product @relation(fields: [product_slug], references: [slug])
+
+  @@map("images_logos")
+}
+
+model ImageAbout {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  url  String @unique
+  alt  String
+
+  product_slug String
+  products     Product @relation(fields: [product_slug], references: [slug])
+
+  @@map("images_abouts")
+}
+
+model Image {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  url  String @unique
+  alt  String
+
+  product_slug String
+  products     Product @relation(fields: [product_slug], references: [slug])
+
+  @@map("images")
+}
+
+model Video {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  url  String @unique
+  alt  String
+
+  product_slug String
+  products     Product @relation(fields: [product_slug], references: [slug])
+
+  @@map("videos")
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+
+  name String
+
+  posts Post[]
+
+  @@map("tags")
+}
+
+model Post {
+  id Int @id @default(autoincrement())
+
+  title       String
+  description String
+  slug        String @unique
+
+  tag_id Int
+
+  tags Tag @relation(fields: [tag_id], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("posts")
+}
+
+model Developer {
+  id Int @id @default(autoincrement())
+
+  name String
+
+  Product Product[]
+
+  @@map("developers")
+}
+
+model Distributor {
+  id Int @id @default(autoincrement())
+
+  name String
+
+  Product Product[]
+
+  @@map("distributors")
 }

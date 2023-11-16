@@ -24,7 +24,6 @@ export default function Navbar({ lang }: Props) {
 
   const router = useRouter()
   const pathname = usePathname()
-  const version = pathname.split('/')[pathname.split('/').length - 1]
   const iconClasses =
     'text-xl text-default-500 pointer-events-none flex-shrink-0'
   const [position, setPosition] = React.useState('pt')
@@ -37,7 +36,7 @@ export default function Navbar({ lang }: Props) {
   return (
     <div className="z-10 max-w-9xl w-full items-center justify-between text-sm flex">
       <section className="flex items-center space-x-12">
-        <Link href={'../../'} className="text-lg font-bold text-white">
+        <Link href={'/store'} className="text-lg font-bold text-white">
           Duck Play
         </Link>
         <ul className="hidden lg:flex items-center gap-4">

@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Pagination } from "swiper/modules";
+import { Pagination } from 'swiper/modules'
 
 // Import Swiper styles
-import Image from "next/image";
-import "swiper/css";
-import "swiper/css/pagination";
+import Image from 'next/image'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
-import "@/app/globals.css";
+import '@/app/globals.css'
 
-export default function HomePage() {
+export default function HomeContent() {
   return (
     <>
       <section className="z-10 w-full h-[400px]">
@@ -22,10 +22,11 @@ export default function HomePage() {
             clickable: true,
           }}
           modules={[Pagination]}
-          className="min-h-[440px]">
+          className="min-h-[440px]"
+        >
           <SwiperSlide className="max-h-[400px]">
             <Image
-              src={"/banner/RedDeadRedemption2-banner.png"}
+              src={'/banner/RedDeadRedemption2-banner.png'}
               width={1920}
               height={400}
               alt="Red Dead Redemption 2 - Banner"
@@ -34,7 +35,7 @@ export default function HomePage() {
           </SwiperSlide>
           <SwiperSlide className="max-h-[400px]">
             <Image
-              src={"/banner/RedDeadRedemption2-banner.png"}
+              src={'/banner/RedDeadRedemption2-banner.png'}
               width={1920}
               height={400}
               alt="Red Dead Redemption 2 - Banner"
@@ -43,7 +44,7 @@ export default function HomePage() {
           </SwiperSlide>
           <SwiperSlide className="max-h-[400px]">
             <Image
-              src={"/banner/RedDeadRedemption2-banner.png"}
+              src={'/banner/RedDeadRedemption2-banner.png'}
               width={1920}
               height={400}
               alt="Red Dead Redemption 2 - Banner"
@@ -53,5 +54,5 @@ export default function HomePage() {
         </Swiper>
       </section>
     </>
-  );
+  )
 }

@@ -60,31 +60,43 @@ export async function POST(req: Request) {
       )
     }
 
-    // check if username already exists
-    const existingUserByUsername = await db.user.findUnique({
-      where: {
-        username,
-      },
-    })
+    // // check if username already exists
+    // const existingUserByUsername = await db.user.findUnique({
+    //   where: {
+    //     username,
+    //   },
+    // })
 
-    if (existingUserByUsername) {
-      return NextResponse.json(
-        {
-          user: null,
-          success: false,
-          message: 'Username already exists',
-        },
-        { status: 409 },
-      )
-    }
+    // if (existingUserByUsername) {
+    //   return NextResponse.json(
+    //     {
+    //       user: null,
+    //       success: false,
+    //       message: 'Username already exists',
+    //     },
+    //     { status: 409 },
+    //   )
+    // }
 
     const hashedPassword = await hash(password, 10)
+
+    const newSlug =
+      Math.floor(Math.random() * (9999999999 - 1000000000 + 1)) + 1000000000
 
     const newUser = await db.user.create({
       data: {
         username,
+        nickname: username,
+        slug: newSlug.toString(),
         email,
         password: hashedPassword,
+        description:
+          'Dê vida ao seu novo perfil e compartilhe quem você é! Explore conquistas, atividades recentes e conecte-se com a comunidade em um único lugar.',
+        createdAt: new Date(),
+        image: 'https://i.imgur.com/QpILXvO.png',
+        city: 'Havana',
+        states: 'Havana',
+        country: 'Cuba',
       },
     })
 

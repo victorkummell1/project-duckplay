@@ -3,11 +3,11 @@ import NextAuth from 'next-auth'
 
 declare module 'next-auth' {
   interface User {
-    username: string
+    slug: string
   }
   interface Session {
     user: User & {
-      username: string
+      slug: string
     }
     token: {
       username: string
