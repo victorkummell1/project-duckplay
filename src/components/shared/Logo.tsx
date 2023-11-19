@@ -1,8 +1,8 @@
 type LogoProps = {
-  width: string;
-  height: string;
-  color: string;
-};
+  width: string
+  height: string
+  color: string
+}
 
 export default function Logo({ width, height, color }: LogoProps) {
   return (
@@ -13,11 +13,13 @@ export default function Logo({ width, height, color }: LogoProps) {
         width={width}
         height={height}
         viewBox="0 0 512.000000 512.000000"
-        preserveAspectRatio="xMidYMid meet">
+        preserveAspectRatio="xMidYMid meet"
+      >
         <g
           transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
           fill={color}
-          stroke="none">
+          stroke="none"
+        >
           <path
             d="M2454 5002 c-71 -25 -152 -79 -169 -113 -20 -38 -19 -78 4 -116 26
 -41 55 -50 88 -26 63 45 80 53 111 53 47 0 86 -23 114 -67 20 -33 23 -51 23
@@ -58,5 +60,5 @@ c-52 -13 -118 -33 -148 -45 l-54 -22 -54 22 c-30 12 -96 32 -148 45 l-93 24
         </g>
       </svg>
     </span>
-  );
+  )
 }
