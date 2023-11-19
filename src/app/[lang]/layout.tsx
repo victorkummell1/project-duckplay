@@ -1,6 +1,6 @@
 import '@/app/globals.css'
 import Footer from '@/components/shared/Footer'
-import Header from '@/components/shared/Header'
+import Navbar from '@/components/shared/Navbar'
 import { Locale, i18n } from '@/config/i18n.config'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -30,7 +30,7 @@ export default function RootLayout({ params, children }: Props) {
   return (
     <html lang={params.lang}>
       <body className={(inter.className, 'bg-dark-10')}>
-        <Header lang={params.lang} />
+        <Navbar lang={params.lang} />
         {children}
         <Footer />
       </body>
