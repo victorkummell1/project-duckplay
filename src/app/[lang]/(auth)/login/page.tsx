@@ -23,12 +23,12 @@ export default function Login() {
             <h2 className="font-white font-bold text-lg">
               Primeira vez no Duck Play?
             </h2>
-            <Button
-              variant={'default'}
-              className="text-base h-10 uppercase w-full bg-brand-color hover:bg-brand-color-darkness"
+            <Link
+              href={'/join'}
+              className="text-gray-50 dark:text-gray-900 text-base h-10 uppercase w-full bg-brand-color hover:bg-brand-color-darkness"
             >
               Cadastrar-se
-            </Button>
+            </Link>
           </div>
           <div className="w-96 text-center flex flex-col">
             <span className="text-dark-30 font-medium">

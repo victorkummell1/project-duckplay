@@ -28,6 +28,7 @@ module.exports = {
         'dark-10': '#0E131E',
         'dark-20': '#1B2838',
         'dark-30': '#AAAAAA',
+        'darkness-10': '#131823',
         // Color System
         'support-01': '#2962FF', // Message
         'support-02': '#0BB07B', // Sucess
