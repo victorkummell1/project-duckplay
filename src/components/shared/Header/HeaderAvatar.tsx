@@ -17,6 +17,7 @@ import { db } from '@/lib/db'
 import { authOptions } from '@/lib/auth'
 import Link from 'next/link'
 import { Header } from '.'
+import { HeaderLanguage } from './HeaderLanguage'
 
 export async function HeaderAvatar() {
   const session = await getServerSession(authOptions)

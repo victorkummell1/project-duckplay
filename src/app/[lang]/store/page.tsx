@@ -6,7 +6,7 @@ export default function Store({ params }: { params: { lang: Locale } }) {
   const dict = getDicionaryServerOnly(params.lang)
 
   return (
-    <main className="bg-dark-10 flex h-[1000px] flex-col items-center justify-between text-white">
+    <main className="bg-dark-10 flex min-h-screen flex-col items-center justify-between text-white">
       <HomeContent />
     </main>
   )

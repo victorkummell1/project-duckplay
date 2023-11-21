@@ -26,7 +26,7 @@ export async function GameSlide({ params }: { params: { slug: string } }) {
         src={images?.url || 'https://i.imgur.com/2VL43uD.png'}
         width={800}
         height={450}
-        alt="Assassins Creed Mirage Game Image"
+        alt={images?.alt || 'Image Not Found.'}
         className="w-[800px] h-[450px]"
       />
       <div className="w-full h-[100px] flex items-center justify-start gap-6 overflow-hidden">
@@ -37,7 +37,7 @@ export async function GameSlide({ params }: { params: { slug: string } }) {
               src={image.url || 'https://i.imgur.com/2VL43uD.png'}
               width={182}
               height={100}
-              alt={images?.alt || 'Image Not Found'}
+              alt={images?.alt || 'Image Not Found.'}
             />
           ))
         ) : (
@@ -46,25 +46,25 @@ export async function GameSlide({ params }: { params: { slug: string } }) {
               src="https://i.imgur.com/2VL43uD.png"
               width={182}
               height={100}
-              alt="Image Not Found"
+              alt="Image Not Found."
             />
             <Image
               src="https://i.imgur.com/2VL43uD.png"
               width={182}
               height={100}
-              alt="Image Not Found"
+              alt="Image Not Found."
             />
             <Image
               src="https://i.imgur.com/2VL43uD.png"
               width={182}
               height={100}
-              alt="Image Not Found"
+              alt="Image Not Found."
             />
             <Image
               src="https://i.imgur.com/2VL43uD.png"
               width={182}
               height={100}
-              alt="Image Not Found"
+              alt="Image Not Found."
             />
           </div>
         )}
