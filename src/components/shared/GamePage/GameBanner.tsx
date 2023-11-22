@@ -1,7 +1,16 @@
 import { Button } from '@/components/ui/button'
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import { db } from '@/lib/db'
 
-export async function GameBanner({ params }: { params: { slug: string } }) {
+interface GameBannerProps {
+  params: { slug: string }
+  lang: Locale
+}
+
+export async function GameBanner({ params, lang }: GameBannerProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const products = await db.product.findUnique({
     where: {
       slug: params.slug,
@@ -23,7 +32,7 @@ export async function GameBanner({ params }: { params: { slug: string } }) {
         variant={'default'}
         className="bg-brand-color hover:bg-brand-color-darkness uppercase rounded-sm"
       >
-        Saiba Mais
+        {dict.store.gamePage.more}
       </Button>
     </section>
   )

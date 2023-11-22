@@ -1,7 +1,16 @@
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import { db } from '@/lib/db'
 import { HiChevronRight, HiStar } from 'react-icons/hi'
 
-export async function GameHead({ params }: { params: { slug: string } }) {
+interface GameHeadProps {
+  params: { slug: string }
+  lang: Locale
+}
+
+export async function GameHead({ params, lang }: GameHeadProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const products = await db.product.findUnique({
     where: {
       slug: params.slug,
@@ -22,7 +31,7 @@ export async function GameHead({ params }: { params: { slug: string } }) {
   return (
     <section className="w-full max-w-6xl flex flex-col items-start justify-center gap-4">
       <div className="flex gap-3 items-center text-dark-30">
-        <span>Todos os Jogos</span>
+        <span>{dict.store.gamePage.allGame}</span>
         <HiChevronRight />
         <span>{genres?.name}</span>
         <HiChevronRight />

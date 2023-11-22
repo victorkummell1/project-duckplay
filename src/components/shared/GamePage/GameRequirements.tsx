@@ -1,11 +1,19 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import { db } from '@/lib/db'
+
+interface GameRequirementsProps {
+  params: { slug: string }
+  lang: Locale
+}
 
 export async function GameRequirements({
   params,
-}: {
-  params: { slug: string }
-}) {
+  lang,
+}: GameRequirementsProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const products = await db.product.findUnique({
     where: {
       slug: params.slug,
@@ -14,7 +22,9 @@ export async function GameRequirements({
 
   return (
     <section className="w-[1216px] max-w-[1216px] h-[726px] max-h[726px] flex flex-col items-start justify-start gap-6">
-      <h3 className="font-normal text-[32px]">Requisitos de sistema</h3>
+      <h3 className="font-normal text-[32px]">
+        {dict.store.gamePage.requiriments}
+      </h3>
       <Tabs defaultValue="windows" className="w-full flex flex-col items-start">
         <TabsList className="w-full flex justify-start rounded-none bg-dark-20 text-white active:bg-transparent p-6">
           <TabsTrigger value="windows">Windows</TabsTrigger>

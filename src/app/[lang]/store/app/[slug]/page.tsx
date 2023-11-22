@@ -1,9 +1,10 @@
 import GameContent from '@/components/pages/GameContent'
+import { Locale } from '@/config/i18n.config'
 
-export default async function GamePage({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  return <GameContent params={params} />
+interface GamePageProps {
+  params: { slug: string; lang: Locale }
+}
+
+export default function GamePage({ params }: GamePageProps) {
+  return <GameContent params={params} lang={params.lang} />
 }

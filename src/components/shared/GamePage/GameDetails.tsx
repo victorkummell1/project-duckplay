@@ -1,8 +1,17 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { db } from '@/lib/db'
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 
-export async function GameDetails({ params }: { params: { slug: string } }) {
+interface GameDetailsProps {
+  params: { slug: string }
+  lang: Locale
+}
+
+export async function GameDetails({ params, lang }: GameDetailsProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const products = await db.product.findUnique({
     where: {
       slug: params.slug,
@@ -32,13 +41,13 @@ export async function GameDetails({ params }: { params: { slug: string } }) {
           variant={'default'}
           className="text-base h-14 uppercase w-full bg-green-light hover:bg-green-light/70 py-[18px]"
         >
-          Compre Agora
+          {dict.store.gamePage.buy}
         </Button>
         <Button
           variant={'default'}
           className="text-base h-14 uppercase w-full py-[18px]"
         >
-          Adicionar ao Carrinho
+          {dict.store.gamePage.add}
         </Button>
       </div>
     </section>

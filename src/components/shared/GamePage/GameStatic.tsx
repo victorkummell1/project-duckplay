@@ -1,9 +1,18 @@
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import { db } from '@/lib/db'
 import { BiUser } from 'react-icons/bi'
 import { FiUsers } from 'react-icons/fi'
 import { PiAsteriskBold, PiGameController } from 'react-icons/pi'
 
-export async function GameStatic({ params }: { params: { slug: string } }) {
+interface GameStaticProps {
+  params: { slug: string }
+  lang: Locale
+}
+
+export async function GameStatic({ params, lang }: GameStaticProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const products = await db.product.findUnique({
     where: {
       slug: params.slug,
@@ -20,7 +29,7 @@ export async function GameStatic({ params }: { params: { slug: string } }) {
                 <BiUser className="w-5 h-5" />
               </span>
               <p className="w-[288px] max-w-[288px] h-[33px] max-h-[33px] flex items-center bg-brand-color/10 px-4 text-brand-color">
-                Um Jogador
+                {dict.store.gamePage.singleplayer}
               </p>
             </div>
           )}
@@ -30,7 +39,7 @@ export async function GameStatic({ params }: { params: { slug: string } }) {
                 <FiUsers className="w-5 h-5" />
               </span>
               <p className="w-[288px] max-w-[288px] h-[33px] max-h-[33px] flex items-center bg-brand-color/10 px-4 text-brand-color">
-                Multijogador
+                {dict.store.gamePage.multiplayer}
               </p>
             </div>
           )}
