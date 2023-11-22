@@ -2,8 +2,16 @@ import Image from 'next/image'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Input } from '@/components/ui/input'
 import Link from 'next/link'
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 
-export function HomeSearch() {
+interface HomeSearchProps {
+  lang: Locale
+}
+
+export function HomeSearch({ lang }: HomeSearchProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   return (
     <section className="w-[1216px] max-w-[1216px] flex items-center justify-center">
       <Tabs
@@ -12,19 +20,19 @@ export function HomeSearch() {
       >
         <TabsList className="w-full h-[80px] flex items-center justify-between bg-dark-20 text-white active:bg-transparent p-6">
           <TabsTrigger value="news-trends" className="text-lg uppercase">
-            Novidades e Tendências
+            {dict.store.searchTab.newsTrends}
           </TabsTrigger>
           <TabsTrigger value="category" className="text-lg uppercase">
-            Categorias
+            {dict.store.searchTab.category}
           </TabsTrigger>
           <TabsTrigger value="point-shop" className="text-lg uppercase">
-            Loja de Pontos
+            {dict.store.searchTab.pointShop}
           </TabsTrigger>
           <TabsTrigger value="news" className="text-lg uppercase">
-            Notícias
+            {dict.store.searchTab.news}
           </TabsTrigger>
           <TabsTrigger value="laboratory" className="text-lg uppercase">
-            Laboratório
+            {dict.store.searchTab.laboratory}
           </TabsTrigger>
         </TabsList>
         <TabsContent
@@ -32,9 +40,9 @@ export function HomeSearch() {
           className="text-lg uppercase flex flex-col items-start justify-start gap-20"
         >
           <Input
-            className="w-full h-[60px] bg-dark-20 border-none text-lg font-medium px-10"
+            className="w-full h-[60px] bg-dark-20 border-none text-lg font-medium px-10 uppercase"
             type="search"
-            placeholder="BUSCAR JOGO"
+            placeholder={dict.store.search}
           />
           <section className="w-full flex items-start justify-between">
             <Link

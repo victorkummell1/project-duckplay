@@ -1,11 +1,19 @@
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function HomeFreeGame() {
+interface HomeFreeGameProps {
+  lang: Locale
+}
+
+export function HomeFreeGame({ lang }: HomeFreeGameProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   return (
     <section className="w-[1216px] max-w-[1216px] flex flex-col items-start justify-start gap-10">
       <h1 className="text-white text-2xl font-semibold uppercase">
-        Jogos Grátis
+        {dict.store.freeGame.title}
       </h1>
       <section className="flex items-center justify-start gap-8">
         <Link
@@ -76,7 +84,9 @@ export function HomeFreeGame() {
               alt="assassins creed mirage"
             />
             <div className="w-[352px] h-[57px] flex items-center justify-between px-4">
-              <p className="text-white font-medium text-2xl">Oferta do dia!</p>
+              <p className="text-white font-medium text-2xl">
+                {dict.store.freeGame.offerDay}
+              </p>
               <div className="flex items-center justify-items-start gap-4">
                 <span className="text-sm font-semibold uppercase bg-brand-color px-2 py-1 rounded">
                   -100%
@@ -96,7 +106,9 @@ export function HomeFreeGame() {
               alt="assassins creed mirage"
             />
             <div className="w-[352px] h-[57px] flex items-center justify-between px-4">
-              <p className="text-white font-medium text-2xl">Oferta do dia!</p>
+              <p className="text-white font-medium text-2xl">
+                {dict.store.freeGame.offerDay}
+              </p>
               <div className="flex items-center justify-items-start gap-4">
                 <span className="text-sm font-semibold uppercase bg-brand-color px-2 py-1 rounded">
                   -100%

@@ -17,9 +17,16 @@ import { db } from '@/lib/db'
 import { authOptions } from '@/lib/auth'
 import Link from 'next/link'
 import { Header } from '.'
-import { HeaderLanguage } from './HeaderLanguage'
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 
-export async function HeaderAvatar() {
+interface HeaderAvatarProps {
+  lang: Locale
+}
+
+export async function HeaderAvatar({ lang }: HeaderAvatarProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   const session = await getServerSession(authOptions)
 
   const user = await db.user.findUnique({
@@ -42,12 +49,12 @@ export async function HeaderAvatar() {
                 src={user?.image || '/Null_Image.png'}
                 alt={user?.nickname + ' image'}
               />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>?</AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 bg-dark-20 text-white rounded-none">
-          <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+          <DropdownMenuLabel>{dict.navbar.user.title}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
@@ -56,16 +63,16 @@ export async function HeaderAvatar() {
                 className="w-full flex items-center"
               >
                 <User className="mr-2 h-4 w-4" />
-                <span>Perfil</span>
+                <span>{dict.navbar.user.profile}</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               <CreditCard className="mr-2 h-4 w-4" />
-              <span>Carteira</span>
+              <span>{dict.navbar.user.wallet}</span>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               <Settings className="mr-2 h-4 w-4" />
-              <span>Configurações</span>
+              <span>{dict.navbar.user.settings}</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
@@ -81,11 +88,11 @@ export async function HeaderAvatar() {
           <DropdownMenuItem>
             <Link className="w-full flex items-center" href={'/help'}>
               <LifeBuoy className="mr-2 h-4 w-4" />
-              <span>Suporte</span>
+              <span>{dict.navbar.user.support}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <Header.SignOut />
+          <Header.SignOut lang={lang} />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

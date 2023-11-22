@@ -19,7 +19,7 @@ export async function HeaderSession({ lang }: HeadersSessionProps) {
       {!session ? (
         <HeaderButton lang={lang} text={dict.navbar.session} />
       ) : (
-        <HeaderAvatar />
+        <HeaderAvatar lang={lang} />
       )}
     </section>
   )

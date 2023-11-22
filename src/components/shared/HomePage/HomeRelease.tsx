@@ -1,11 +1,19 @@
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function HomeRelease() {
+interface HomeReleaseProps {
+  lang: Locale
+}
+
+export function HomeRelease({ lang }: HomeReleaseProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   return (
     <section className="w-[1216px] max-w-[1216px] flex flex-col items-start justify-start gap-10">
       <h1 className="text-white text-2xl font-semibold uppercase">
-        Lançamentos
+        {dict.store.releases}
       </h1>
       <section className="w-[1216px] overflow-hidden flex items-center justify-start gap-8">
         <Link

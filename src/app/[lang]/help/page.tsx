@@ -6,7 +6,7 @@ export default function Help({ params }: { params: { lang: Locale } }) {
 
   return (
     <main className="bg-dark-10 flex h-[1000px] flex-col items-center justify-between text-white">
-      {dict.hello.support}
+      {dict.navbar.support}
     </main>
   )
 }

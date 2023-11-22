@@ -1,14 +1,19 @@
+import { Locale } from '@/config/i18n.config'
 import { Home } from '../shared/HomePage'
 
-export default function HomeContent() {
+interface HomeContentProps {
+  lang: Locale
+}
+
+export default function HomeContent({ lang }: HomeContentProps) {
   return (
-    <main className="w-full flex flex-col items-center justify-center gap-[118px] mb-[100px]">
+    <Home.Root>
       <Home.Slide />
-      <Home.Search />
-      <Home.Category />
-      <Home.Explore />
-      <Home.FreeGame />
-      <Home.Release />
-    </main>
+      <Home.Search lang={lang} />
+      <Home.Category lang={lang} />
+      <Home.Explore lang={lang} />
+      <Home.FreeGame lang={lang} />
+      <Home.Release lang={lang} />
+    </Home.Root>
   )
 }

@@ -1,11 +1,4 @@
 export const esES = {
-  hello: {
-    home: 'Mensaje de texto',
-    shop: 'Tienda',
-    community: 'Comunidad',
-    about: 'Sobre',
-    support: 'Apoyo',
-  },
   navbar: {
     shop: 'Tienda',
     community: 'Comunidad',
@@ -14,8 +7,40 @@ export const esES = {
     profile: 'Perfil',
     session: 'inicia sesión',
     language: 'idioma',
+    user: {
+      title: 'Mi cuenta',
+      profile: 'Perfil',
+      wallet: 'Billetera',
+      settings: 'Ajustes',
+      support: 'Soporte',
+      signOut: 'Salir del perfil',
+    },
   },
-  shop: {},
+  store: {
+    search: 'Buscar juegos',
+    searchTab: {
+      newsTrends: 'Noticias y Tendencias',
+      category: 'Categorías',
+      pointShop: 'Almacén de puntos',
+      news: 'Novedades',
+      laboratory: 'Laboratorio',
+    },
+    navigation: {
+      title: 'Navega por el Duck Play',
+      releases: 'Libera',
+      offers: 'Ofrece',
+      freeGame: 'Juegos gratis',
+      bestSeller: 'Los más vendidos',
+    },
+    exploreCategory: {
+      title: 'Explorar categorías',
+    },
+    freeGame: {
+      title: 'Juegos gratis',
+      offerDay: '¡Oferta del día!',
+    },
+    releases: 'Libera',
+  },
   community: {},
   about: {},
   support: {},

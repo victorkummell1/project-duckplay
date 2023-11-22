@@ -1,11 +1,19 @@
+import { Locale } from '@/config/i18n.config'
+import { getDicionaryServerOnly } from '@/dictionaries/default-dictionary-server-only'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function HomeExplore() {
+interface HomeExploreProps {
+  lang: Locale
+}
+
+export function HomeExplore({ lang }: HomeExploreProps) {
+  const dict = getDicionaryServerOnly(lang)
+
   return (
     <section className="w-[1216px] max-w-[1216px] flex flex-col items-start justify-center gap-10">
       <h1 className="text-white text-2xl font-semibold uppercase">
-        Explore por Categorias
+        {dict.store.exploreCategory.title}
       </h1>
       <section className="w-[1216px] max-w-[1216px] flex flex-wrap items-center justify-start gap-y-10 gap-x-8">
         <Link
