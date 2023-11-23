@@ -8,12 +8,12 @@ interface HomeContentProps {
 export default function HomeContent({ lang }: HomeContentProps) {
   return (
     <Home.Root>
-      <Home.Slide />
+      {/* <Home.Slide /> */}
       <Home.Search lang={lang} />
       <Home.Category lang={lang} />
       <Home.Explore lang={lang} />
-      <Home.FreeGame lang={lang} />
-      <Home.Release lang={lang} />
+      {/* <Home.FreeGame lang={lang} /> */}
+      {/* <Home.Release lang={lang} /> */}
     </Home.Root>
   )
 }

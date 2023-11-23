@@ -6,7 +6,7 @@ interface HomeRootProps {
 
 export function HomeRoot({ children }: HomeRootProps) {
   return (
-    <main className="w-full flex flex-col items-center justify-center gap-[118px] mb-[100px]">
+    <main className="w-full flex flex-col items-center justify-center gap-[118px] py-32">
       {children}
     </main>
   )

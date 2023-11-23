@@ -3,4 +3,15 @@
     "@rocketseat/eslint-config/next",
     "next/core-web-vitals"
   ]
+//   "rules": {
+//     "import-helpers/order-imports": [
+//       "warn",
+//       {
+//         "newlinesBetween": "always",
+//         "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
+//         "alphabetize": {"orders": "asc", "ignoreCase": true}
+//       }
+//     ]
+// }
+  
 }

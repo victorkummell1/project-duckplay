@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import Image from 'next/image'
-import { GoGear } from 'react-icons/go'
 import {
   PiGameController,
   PiMedalMilitary,
@@ -13,6 +12,7 @@ import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
 import { db } from '@/lib/db'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { EditButton } from '@/components/shared/EditPage/EditButton'
 
 export default async function Profile({
   params,
@@ -89,11 +89,7 @@ export default async function Profile({
                 </div>
               </div>
             </div>
-            {isOwnerAccount && (
-              <Button className="bg-dark-20 w-12 h-12 p-2">
-                <GoGear className="w-full h-full text-white" />
-              </Button>
-            )}
+            {isOwnerAccount && <EditButton link={`/id/${params.slug}/edit`} />}
           </section>
           <section className="flex flex-col w-full gap-12">
             <div className="w-full flex items-center justify-between">

@@ -46,7 +46,7 @@ export function HomeSearch({ lang }: HomeSearchProps) {
           />
           <section className="w-full flex items-start justify-between">
             <Link
-              href={'#'}
+              href={`/store/app/marqueige/`}
               className="w-[280px] max-[280px] h-[450px] max-h-[450px]"
             >
               <Image
@@ -57,33 +57,33 @@ export function HomeSearch({ lang }: HomeSearchProps) {
               />
             </Link>
             <Link
-              href={'#'}
+              href={`/store/app/assassins-creed-mirage/`}
               className="w-[280px] max-[280px] h-[450px] max-h-[450px]"
             >
               <Image
-                src={'https://i.imgur.com/j6YaRVr.png'}
+                src={'https://i.imgur.com/ps55yRM.png'}
                 width={280}
                 height={450}
                 alt="a"
               />
             </Link>
             <Link
-              href={'#'}
+              href={`/store/app/stray/`}
               className="w-[280px] max-[280px] h-[450px] max-h-[450px]"
             >
               <Image
-                src={'https://i.imgur.com/j6YaRVr.png'}
+                src={'https://i.imgur.com/aVfVMUg.png'}
                 width={280}
                 height={450}
                 alt="a"
               />
             </Link>
             <Link
-              href={'#'}
+              href={`/store/app/satisfactory/`}
               className="w-[280px] max-[280px] h-[450px] max-h-[450px]"
             >
               <Image
-                src={'https://i.imgur.com/j6YaRVr.png'}
+                src={'https://i.imgur.com/8iZQd2B.png'}
                 width={280}
                 height={450}
                 alt="a"

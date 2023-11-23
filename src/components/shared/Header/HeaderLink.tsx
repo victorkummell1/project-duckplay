@@ -23,7 +23,6 @@ export function HeaderLink({ lang }: HeaderLinkProps) {
         {[
           [dict.navbar.shop, '/store'],
           [dict.navbar.community, '/community'],
-          [dict.navbar.about, '/about'],
           [dict.navbar.support, '/help'],
         ].map(([text, url], index) => {
           const isActive = pathname === url || pathname === '/' + lang + url

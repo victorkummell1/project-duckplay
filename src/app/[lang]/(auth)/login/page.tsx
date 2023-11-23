@@ -1,6 +1,5 @@
 import { LoginForm } from '@/components/auth/default-form-login'
 import Logo from '@/components/shared/Logo'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 export default function Login() {
@@ -25,7 +24,7 @@ export default function Login() {
             </h2>
             <Link
               href={'/join'}
-              className="text-gray-50 dark:text-gray-900 text-base h-10 uppercase w-full bg-brand-color hover:bg-brand-color-darkness"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-gray-950 dark:focus-visible:ring-gray-300 text-gray-50 dark:text-gray-900 text-base h-10 uppercase w-full bg-brand-color hover:bg-brand-color-darkness"
             >
               Cadastrar-se
             </Link>
